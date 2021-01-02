@@ -72,7 +72,7 @@ namespace BinaryFlag.Tests
             MultipleBinaryFlag flag = new MultipleBinaryFlag(default_length, true);
 
             try{
-                flag.ReseetFlag(default_length + 1);
+                flag.ResetFlag(default_length + 1);
                 Assert.False(true); //if doesnt throw exception then test method failed
             }catch(ArgumentOutOfRangeException exc){
                 string errMessage = "Position must be lesser than length";
