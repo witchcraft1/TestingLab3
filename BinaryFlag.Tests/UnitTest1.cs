@@ -56,7 +56,29 @@ namespace BinaryFlag.Tests
         }
 
         [Fact]
-        public void 
+        public void doesSetFlagThrowExcWhenPosMoreLength(){
+            MultipleBinaryFlag flag = new MultipleBinaryFlag(default_length, true);
+
+            try{
+                flag.SetFlag(default_length + 1);
+                Assert.False(true); //if doesnt throw exception then test method failed
+            }catch(ArgumentOutOfRangeException exc){
+                string errMessage = "Position must be lesser than length";
+                Assert.True(exc.Message.Contains(errMessage));
+            }
+        }
+        [Fact]
+        public void doesReSetFlagThrowExcWhenPosMoreLength(){
+            MultipleBinaryFlag flag = new MultipleBinaryFlag(default_length, true);
+
+            try{
+                flag.ReseetFlag(default_length + 1);
+                Assert.False(true); //if doesnt throw exception then test method failed
+            }catch(ArgumentOutOfRangeException exc){
+                string errMessage = "Position must be lesser than length";
+                Assert.True(exc.Message.Contains(errMessage));
+            }
+        }
 
          [Fact]
         public void doesSetFlagWorksCorrect()
@@ -88,6 +110,17 @@ namespace BinaryFlag.Tests
         //         }
         //     }
         // }
-        //Тестування 
+
+
+        //Тестування
+
+        // [Fact]
+        // public void test(){
+        //     ulong uIntInstanceLength = 32;
+        //     bool flagTrue = true;
+        //     bool flagFalse = false;
+        //     MultipleBinaryFlag flag = new MultipleBinaryFlag(uIntInstanceLength, flagTrue);
+
+        // } 
     }
 }
